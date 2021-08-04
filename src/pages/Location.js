@@ -1,13 +1,24 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import CustomInput from '../global/CustomInput';
 import './Location.css';
 
 const Location = () => {
-    // const history = useHistory();
-    const locationList = [{ "name": "t", "location": "location 1" }, { "name": "b", "location": "location 2" }]
+    const history = useHistory();
+    const UID = useParams().UID;
+    const locationList = [
+        { 
+            "name": "t", 
+            "location": "location 1" 
+        }, 
+        { 
+            "name": "b", 
+            "location": "location 2" 
+        }
+    ];
+
     return (
         <React.Fragment>
             <Formik
@@ -33,7 +44,7 @@ const Location = () => {
             </Formik>
             {locationList.map(obj => {
                 return (
-                    <button className="table-button">
+                    <button className="table-button" key={obj.name} onClick={() => history.push(`/vaccines/${UID}`)}>
                         {obj.location}
                     </button>
                 );

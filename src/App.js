@@ -9,6 +9,7 @@ import {
 import Login from './pages/Login';
 import Location from './pages/Location';
 import Appointments from './pages/Appointments';
+import Vaccines from './pages/Vaccines';
 import MainHeader from './global/MainHeader';
 
 
@@ -24,6 +25,9 @@ const App = () => {
       <Route path="/locations/:UID" exact>
         <Location/>
       </Route>
+      <Route path="/vaccines/:UID" exact>
+        <Vaccines/>
+      </Route>      
       <Redirect to="/" />
     </Switch>
   );
