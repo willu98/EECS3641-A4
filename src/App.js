@@ -22,8 +22,6 @@ const App = () => {
         <Appointments/>
       </Route>
       <Route path="/locations/:UID" exact>
-      </Route>
-      <Route path="/location" exact>
         <Location/>
       </Route>
       <Redirect to="/" />
