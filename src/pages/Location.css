@@ -1,0 +1,52 @@
+.location-h1{
+    text-align: center;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.location-h2{
+    text-align: left;
+    color: #777;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.location-form {
+    display:flex;
+    flex-direction: column;
+    width:25%;
+    margin: 100px auto;
+}
+
+.location-label{
+    margin-top: 20px;
+}
+
+.location-button{
+    margin-top: 20px;
+}
+
+.location-input {
+    font-size: 1.2em;
+}
+
+.location-error{
+    color:red;
+    font-size: .6em;
+}
+
+.location-button{
+    background:#ff0055;
+    padding:10px;
+    color:white;
+    border-radius:5px;
+    font-size: 1.2em;
+}
+.table-button{
+    display:flex;
+    justify-content: center;
+    margin: 5px auto;
+    width: 40%;
+    height: 100%;
+    padding: 10px;
+}

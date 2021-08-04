@@ -24,16 +24,16 @@ const Login = () => {
           .required('required'),
       })}
       onSubmit={(values, {setSubmitting, resetForm}) =>{
-        history.push('/appointments');
+        history.push(`/appointments/${values.ohipNum}`);
       }}
     >
       {props => (
         <Form className="login-form">
           <h1 className="login-h1">Log In</h1>
-          <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV"/>
-          <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789"/>
+          <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length = "2"/>
+          <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length = "10"/>
           <button className="login-button">
-            {props.isSubmitting ? 'Loading...' : 'submit'}        
+            {props.isSubmitting ? 'Loading...' : 'Submit'}        
           </button>
         </Form>
       )}

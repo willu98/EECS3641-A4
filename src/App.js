@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Login from './pages/Login';
+import Location from './pages/Location';
 import MainHeader from './global/MainHeader';
 
 
@@ -18,6 +19,9 @@ const App = () => {
       </Route>
       <Route path="/appointments" exact>
 
+      </Route>
+      <Route path="/location" exact>
+        <Location/>
       </Route>
       <Redirect to="/" />
     </Switch>
