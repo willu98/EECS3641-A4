@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,9 +11,18 @@ import Location from './pages/Location';
 import Appointments from './pages/Appointments';
 import Vaccines from './pages/Vaccines';
 import MainHeader from './global/MainHeader';
-
+import {AppointmentContext} from './global/Appointment-Context';
 
 const App = () => {
+
+  const [appointment, setAppointment] = useState({
+    name:"",
+    uID:"",
+    lID:"",
+    vID:"",
+    date:""
+  });
+
   let routes = (
     <Switch>
       <Route path="/" exact>
@@ -33,10 +42,14 @@ const App = () => {
   );
 
   return (
-  <Router>
-    <MainHeader/>
-    <main>{routes}</main>
-  </Router>
+    <AppointmentContext.Provider
+      value={[appointment, setAppointment]}
+    >
+      <Router>
+        <MainHeader />
+        <main>{routes}</main>
+      </Router>
+    </AppointmentContext.Provider>  
   );
 }
 

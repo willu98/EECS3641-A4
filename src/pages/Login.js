@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AppointmentContext } from '../global/Appointment-Context';
 import { useHistory } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +9,7 @@ import './Login.css';
 const Login = () => {
 
   const history = useHistory();
+  const [appointment, setAppointment] = useContext(AppointmentContext);
 
   const formik = 
     <Formik
@@ -24,7 +26,8 @@ const Login = () => {
           .required('required'),
       })}
       onSubmit={(values, {setSubmitting, resetForm}) =>{
-        history.push(`/appointments/${values.ohipNum}`);
+        setAppointment({...appointment, uID:values.ohipNum});  
+        history.push(`/appointments/${values.ohipNum}`);              
       }}
     >
       {props => (
@@ -32,7 +35,7 @@ const Login = () => {
           <h1 className="login-h1">Log In</h1>
           <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length = "2"/>
           <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length = "10"/>
-          <button className="login-button">
+          <button className="login-button" type="submit">
             {props.isSubmitting ? 'Loading...' : 'Submit'}        
           </button>
         </Form>
