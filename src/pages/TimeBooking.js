@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AppointmentContext } from '../global/Appointment-Context';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import './TimeBooking.css';
 
@@ -33,44 +33,47 @@ const TimeBooking = () => {
                 </div>
             </div>
             <table>
-                <tr>
-                    <th>
-                        Time
-                    </th>
-                    <th>
-                        Avaliablity
-                    </th>
-                </tr>
-                {appointmentDaysAndTimesDictionary.map(item => {
-                    
-                    if (currentDate != null && currentDate.getDate() % item.day === 0 ) {
-                        return (
-                            <tr>
-                                <td className="table-border">
-                                    {item.time}
-                                </td>
-                                <td>
-                                    {item.avaliability}
-                                </td>
-                                <td>
-                                    {item.avaliability=="Avaliable"?
-                                    <button className="book-on" onClick={() => {
-                                        history.push(`/requiredinfo`);
-                                        setAppointment({ ...appointment, date: currentDate });
-                                        //console.log(currentDate.getDate());
-                                    }}>                                        
-                                        Book
-                                    </button>:
-                                    <button disabled>Book</button>
-                                    }
-                                    
-                                    {/* <button type="submit" className="appointments-button" onClick={() => history.push(`/locations/${UID}`)} >Book New Appointment</button> */}
-                                    
-                                </td>
-                            </tr>
-                        );
-                    }
-                })}
+                <tbody>
+                    <tr>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                            Avaliablity
+                        </th>
+                    </tr>
+                    {appointmentDaysAndTimesDictionary.map(item => {
+                        
+                        if (currentDate != null && currentDate.getDate() % item.day === 0 ) {
+                            return (
+                                <tr key = {item.time}>
+                                    <td className="table-border">
+                                        {item.time}
+                                    </td>
+                                    <td>
+                                        {item.avaliability}
+                                    </td>
+                                    <td>
+                                        {item.avaliability==="Avaliable"?
+                                        <button className="book-on" onClick={() => {
+                                            history.push(`/confirmation`);
+                                            setAppointment({ ...appointment, date: currentDate.toDateString() });
+                                            //console.log(appointment);
+                                        }}>                                        
+                                            Book
+                                        </button>:
+                                        <button disabled>Book</button>
+                                        }
+                                        
+                                        {/* <button type="submit" className="appointments-button" onClick={() => history.push(`/locations/${UID}`)} >Book New Appointment</button> */}
+                                        
+                                    </td>
+                                </tr>
+                            );
+                        }
+                        return <></>
+                    })}
+                </tbody>
             </table>
         </React.Fragment>
     );

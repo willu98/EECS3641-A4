@@ -12,14 +12,15 @@ import Appointments from './pages/Appointments';
 import TimeBooking from './pages/TimeBooking';
 import Vaccines from './pages/Vaccines';
 import MainHeader from './global/MainHeader';
-import RequiredInfo from './pages/RequiredInfo';
+import Confirm from './pages/Confirm';
 import { AppointmentContext } from './global/Appointment-Context';
 
 
 const App = () => {
 
   const [appointment, setAppointment] = useState({
-    name:"",
+    first:"",
+    last:"",
     uID:"",
     lID:"",
     vID:"",
@@ -43,9 +44,10 @@ const App = () => {
       <Route path="/timebooking" exact>
         <TimeBooking/>
       </Route>
-      <Route path="/requiredinfo" exact>
-        <RequiredInfo/>
+      <Route path="/confirmation" exact>
+        <Confirm/>
       </Route>
+      <Redirect to="/" />
     </Switch>
   );
 

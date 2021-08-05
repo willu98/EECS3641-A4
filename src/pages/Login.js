@@ -14,10 +14,18 @@ const Login = () => {
   const formik = 
     <Formik
       initialValues={{
+        first:'',
+        last:'',
         versionCode: '',
         ohipNum:'',
       }}
       validationSchema={Yup.object({
+        first: Yup.string()
+          .matches(/^[a-zA-Z]+$/, 'English characters only')
+          .required('required'),
+        last: Yup.string()
+          .matches(/^[a-zA-Z]+$/, 'English characters only')
+          .required('required'),                  
         versionCode: Yup.string()
           .matches(/[A-Z][A-Z]/, 'Must be only 2 characters long and only letters')
           .required('required'),
@@ -26,13 +34,15 @@ const Login = () => {
           .required('required'),
       })}
       onSubmit={(values, {setSubmitting, resetForm}) =>{
-        setAppointment({...appointment, uID:values.ohipNum});  
+        setAppointment({...appointment, uID:values.ohipNum, first:values.first, last:values.last});  
         history.push(`/appointments/${values.ohipNum}`);              
       }}
     >
       {props => (
         <Form className="login-form">
           <h1 className="login-h1">Log In</h1>
+          <CustomInput label="First Name" name="first" type="text" placeholder="John"/>
+          <CustomInput label="Last Name" name="last" type="text" placeholder="Doe"/>
           <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length = "2"/>
           <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length = "10"/>
           <button className="login-button" type="submit">

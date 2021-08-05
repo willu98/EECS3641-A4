@@ -59,11 +59,11 @@ const Vaccines = () => {
                                 <React.Fragment key={vaccine.id}>
                                     <div className="appointment-date">{vaccine.name}</div>
                                     <div>
-                                        <Field type="radio" value={vaccine.name + " 1"} name="picked" />
+                                        <Field type="radio" value={"first " + vaccine.name} name="picked" />
                                         <span>First Dose</span>
-                                        {vaccine.id != 'JJ' ? (
+                                        {vaccine.id !== 'JJ' ? (
                                             <>
-                                                <Field type="radio" value={vaccine.name + " 2"} name="picked" />
+                                                <Field type="radio" value={"second " + vaccine.name} name="picked" />
                                                 <span>Second Dose</span>
                                             </>
                                         ) : null}
