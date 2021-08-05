@@ -9,9 +9,12 @@ import {
 import Login from './pages/Login';
 import Location from './pages/Location';
 import Appointments from './pages/Appointments';
+import TimeBooking from './pages/TimeBooking';
 import Vaccines from './pages/Vaccines';
 import MainHeader from './global/MainHeader';
-import {AppointmentContext} from './global/Appointment-Context';
+import RequiredInfo from './pages/RequiredInfo';
+import { AppointmentContext } from './global/Appointment-Context';
+
 
 const App = () => {
 
@@ -36,7 +39,13 @@ const App = () => {
       </Route>
       <Route path="/vaccines/:UID" exact>
         <Vaccines/>
-      </Route>      
+      </Route>            
+      <Route path="/timebooking" exact>
+        <TimeBooking/>
+      </Route>
+      <Route path="/requiredinfo" exact>
+        <RequiredInfo/>
+      </Route>
       <Redirect to="/" />
     </Switch>
   );
