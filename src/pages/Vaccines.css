@@ -17,9 +17,18 @@
     color:white;
     border-radius:5px;
     font-size: 1.2em;    
-    
+    margin-top: 5px;
 }
 
 .ul{
     padding: 0%;
+}
+
+.error{
+    color:red;
+    font-size: .6em;
+}
+
+b{
+    color: red;
 }

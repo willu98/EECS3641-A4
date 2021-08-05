@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AppointmentContext } from '../global/Appointment-Context';
 import { useHistory, useParams } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +9,8 @@ import './Location.css';
 const Location = () => {
     const history = useHistory();
     const UID = useParams().UID;
+    const [appointment, setAppointment] = useContext(AppointmentContext);
+
     const locationList = [
         { 
             "name": "t", 
@@ -44,7 +47,11 @@ const Location = () => {
             </Formik>
             {locationList.map(obj => {
                 return (
-                    <button className="table-button" key={obj.name} onClick={() => history.push(`/vaccines/${UID}`)}>
+                    <button className="table-button" key={obj.name} onClick={() => {
+                            history.push(`/vaccines/${UID}`);
+                            setAppointment({...appointment, lID:obj.location});
+                        }}
+                    >
                         {obj.location}
                     </button>
                 );
