@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AppointmentContext } from '../global/Appointment-Context';
 import { useParams, useHistory } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import './TimeBooking.css';
 
 
 const TimeBooking = () => {
-    const UID = useParams().UID;
+
+    const [appointment, setAppointment] = useContext(AppointmentContext);
+
     const [currentDate, onChangeDate] = useState(new Date());
     const appointmentDaysAndTimesDictionary = 
     [{ "day": 2, "time": "10:00", "avaliability": "Unavaliable" },
@@ -51,7 +54,13 @@ const TimeBooking = () => {
                                 </td>
                                 <td>
                                     {item.avaliability=="Avaliable"?
-                                    <button className="book-on" onClick={() => history.push(`/requiredinfo`)} >Book</button>:
+                                    <button className="book-on" onClick={() => {
+                                        history.push(`/requiredinfo`);
+                                        setAppointment({ ...appointment, date: currentDate });
+                                        //console.log(currentDate.getDate());
+                                    }}>                                        
+                                        Book
+                                    </button>:
                                     <button disabled>Book</button>
                                     }
                                     

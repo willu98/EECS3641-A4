@@ -46,7 +46,6 @@ const App = () => {
       <Route path="/requiredinfo" exact>
         <RequiredInfo/>
       </Route>
-      <Redirect to="/" />
     </Switch>
   );
 

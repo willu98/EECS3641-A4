@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppointmentContext } from '../global/Appointment-Context';
 
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
@@ -9,6 +9,8 @@ import './Vaccines.css';
 
 
 const Vaccines = () => {
+    const history = useHistory();
+
     const VACCINES = [
         {
             id: 'M',
@@ -47,7 +49,7 @@ const Vaccines = () => {
                 })}
                 onSubmit={values => {
                     setAppointment({ ...appointment, vID: values.picked });
-                    //````history.push(`/appointments/${values.ohipNum}`);              
+                    history.push('/timebooking');              
                 }}
             >
                 {({ values }) => (
