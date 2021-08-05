@@ -9,7 +9,7 @@ const CustomInput = ({ label, ...props}) => {
     return (
       <>
         <label className="login-label" htmlFor={props.id || props.name}>{label}</label>
-        <input className="login-input" {...field} {...props} maxlength = {props.length} />
+        <input className="login-input" {...field} {...props} maxLength = {props.length} />
         {meta.touched && meta.error ? (
           <div className="login-error">{meta.error}</div>
         ): null}

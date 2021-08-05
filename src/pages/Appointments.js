@@ -21,7 +21,7 @@ const Appointments = () => {
     return(
         <div className = "appointments-main">
             <h1 className = "appointments-h1">Current Appointments</h1>
-            <ul>
+            <ul className="ul">
                 {APPOINTMENTS.map(appointment => (
                     <Appointment
                         key = {appointment.id}
