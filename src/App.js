@@ -9,7 +9,9 @@ import {
 import Login from './pages/Login';
 import Location from './pages/Location';
 import Appointments from './pages/Appointments';
+import TimeBooking from './pages/TimeBooking';
 import MainHeader from './global/MainHeader';
+import RequiredInfo from './pages/RequiredInfo';
 
 
 const App = () => {
@@ -23,6 +25,12 @@ const App = () => {
       </Route>
       <Route path="/locations/:UID" exact>
         <Location/>
+      </Route>
+      <Route path="/timebooking" exact>
+        <TimeBooking/>
+      </Route>
+      <Route path="/requiredinfo" exact>
+        <RequiredInfo/>
       </Route>
       <Redirect to="/" />
     </Switch>
