@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppointmentContext } from '../global/Appointment-Context';
 
 import { useHistory } from 'react-router-dom';
@@ -29,7 +29,9 @@ const Vaccines = () => {
         }
     ];
 
+
     const [appointment, setAppointment] = useContext(AppointmentContext);
+    const [pickedState, setPickedState] = useState(0)
 
     return (
         <div className="vaccines-main">
@@ -39,6 +41,7 @@ const Vaccines = () => {
                 initialValues={{
                     picked: null,
                     terms: false,
+                    state: 0,
                 }}
                 validationSchema={Yup.object({
                     picked: Yup.string('Required'),
@@ -71,9 +74,7 @@ const Vaccines = () => {
                                     </div>
                                 </React.Fragment>
                             ))}
-                            {values.picked == null && (
-                                <b>Please select a vaccine</b>
-                            )}
+
                         </ul>
 
                         <label>
@@ -94,8 +95,16 @@ const Vaccines = () => {
                             </Field>
                         </label>
                         <br></br>
-                        <button className="button" type="submit">Book Appointment</button>
-
+                        <button className="button" type="submit" onClick={()=>{
+                            setPickedState(1)
+                        }}>Book Appointment</button>
+                        {(pickedState !== 0  && values.picked == null) && (
+                            <React.Fragment>
+                                <br></br>
+                            <p className = "error">Please select a vaccine</p>
+                            
+                            </React.Fragment>
+                        )}
                     </Form>
                 )}
             </Formik>
