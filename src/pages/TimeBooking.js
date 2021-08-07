@@ -53,10 +53,7 @@ const TimeBooking = () => {
                                     {item.avaliability=="Avaliable"?
                                     <button className="book-on" onClick={() => history.push(`/requiredinfo`)} >Book</button>:
                                     <button disabled>Book</button>
-                                    }
-                                    
-                                    {/* <button type="submit" className="appointments-button" onClick={() => history.push(`/locations/${UID}`)} >Book New Appointment</button> */}
-                                    
+                                    }                                    
                                 </td>
                             </tr>
                         );
