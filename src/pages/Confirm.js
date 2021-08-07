@@ -13,12 +13,12 @@ const RequiredInfo = () => {
       <h1 className = "h1">Confirmation</h1>
 
       {!confirmed?(
-        <div>{appointment.first}, your appointment for the {appointment.vID} vaccine is set for {appointment.date}. <br></br>Please click the 'Confirm' button below to confirm your appointment.</div>)
+        <div>{appointment.first}, your appointment for the {appointment.vID} vaccine is set for {appointment.date} at {appointment.lID}. <br></br>Please click the 'Confirm' button below to confirm your appointment.</div>)
         : <div>{appointment.first}, You have booked your appointment for the {appointment.vID} vaccine on {appointment.date}. <br></br>Please click the button below to book another appointment.</div>
       }
       <button type="submit" className="button" onClick={() => {
         if(confirmed){
-          history.push(`/`);
+          history.push(`/appointments/${appointment.uID}`);
         }
         setConfirmed(true);
         }}>

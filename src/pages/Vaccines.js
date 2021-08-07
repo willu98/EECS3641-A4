@@ -59,21 +59,19 @@ const Vaccines = () => {
                                 <React.Fragment key={vaccine.id}>
                                     <div className="appointment-date">{vaccine.name}</div>
                                     <div>
-                                        <Field type="radio" value={"first " + vaccine.name} name="picked" />
+                                        {/*<Field type="radio" value={"first " + vaccine.name} name="picked" />
                                         <span>First Dose</span>
                                         {vaccine.id !== 'JJ' ? (
                                             <>
                                                 <Field type="radio" value={"second " + vaccine.name} name="picked" />
                                                 <span>Second Dose</span>
                                             </>
-                                        ) : null}
+                                        ) : null}*/}
 
                                     </div>
                                 </React.Fragment>
                             ))}
-                            {values.picked == null && (
-                                <b>Please select a vaccine</b>
-                            )}
+
                         </ul>
 
                         <label>
@@ -95,7 +93,9 @@ const Vaccines = () => {
                         </label>
                         <br></br>
                         <button className="button" type="submit">Book Appointment</button>
-
+                        {values.picked == null && (
+                                <b>Please select a vaccine</b>
+                        )}
                     </Form>
                 )}
             </Formik>

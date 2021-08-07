@@ -71,7 +71,7 @@ const TimeBooking = () => {
                                 </tr>
                             );
                         }
-                        return <></>
+                        return <React.Fragment key = {item.time}></React.Fragment>
                     })}
                 </tbody>
             </table>
