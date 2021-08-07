@@ -3,6 +3,7 @@ import { AppointmentContext } from '../global/Appointment-Context';
 
 import { useHistory } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
+import BackButton from '../global/BackButton';
 import * as Yup from 'yup';
 
 import './Vaccines.css';
@@ -36,79 +37,78 @@ const Vaccines = () => {
     return (
         <div className="vaccines-main">
             <h1 className="vaccines-h1">Select Your Vaccine</h1>
+            <div className = "vaccines-center">
+                <Formik
+                    initialValues={{
+                        picked: null,
+                        terms: false,
+                    }}
+                    validationSchema={Yup.object({
+                        picked: Yup.string('Required'),
 
-            <Formik
-                initialValues={{
-                    picked: null,
-                    terms: false,
-                    state: 0,
-                }}
-                validationSchema={Yup.object({
-                    picked: Yup.string('Required'),
+                        terms: Yup.boolean()
+                            .required('Required')
+                            .oneOf([true], 'You must accept the terms and conditions'),
+                    })}
+                    onSubmit={values => {
+                        setAppointment({ ...appointment, vID: values.picked });
+                        history.push('/timebooking');
+                    }}
+                >
+                    {({ values }) => (
+                        <Form>
+                            <ul className="ul">
+                                {VACCINES.map(vaccine => (
+                                    <React.Fragment key={vaccine.id}>
+                                        <div className="appointment-date">{vaccine.name}</div>
+                                        <div>
+                                            <Field type="radio" value={"first " + vaccine.name} name="picked" />
+                                            <span>First Dose</span>
+                                            {vaccine.id !== 'JJ' && (
+                                                <>
+                                                    <Field type="radio" value={"second " + vaccine.name} name="picked" />
+                                                    <span>Second Dose</span>
+                                                </>
+                                            )}
 
-                    terms: Yup.boolean()
-                        .required('Required')
-                        .oneOf([true], 'You must accept the terms and conditions'),
-                })}
-                onSubmit={values => {
-                    setAppointment({ ...appointment, vID: values.picked });
-                    history.push('/timebooking');
-                }}
-            >
-                {({ values }) => (
-                    <Form>
-                        <ul className="ul">
-                            {VACCINES.map(vaccine => (
-                                <React.Fragment key={vaccine.id}>
-                                    <div className="appointment-date">{vaccine.name}</div>
-                                    <div>
-                                        <Field type="radio" value={"first " + vaccine.name} name="picked" />
-                                        <span>First Dose</span>
-                                        {vaccine.id !== 'JJ' ? (
-                                            <>
-                                                <Field type="radio" value={"second " + vaccine.name} name="picked" />
-                                                <span>Second Dose</span>
-                                            </>
-                                        ) : null}
+                                        </div>
+                                    </React.Fragment>
+                                ))}
 
-                                    </div>
+                            </ul>
+
+                            <label>
+                                <Field name="terms">
+                                    {({
+                                        field, // { name, value, onChange, onBlur }
+                                        form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+                                        meta,
+                                    }) => (
+                                        <div>
+                                            I Agree To Terms
+                                            <input type="checkbox" {...field} />
+                                            {meta.touched && meta.error && (
+                                                <div className="error">{meta.error}</div>
+                                            )}
+                                        </div>
+                                    )}
+                                </Field>
+                            </label>
+                            <br></br>
+                            <button className="button" type="submit" onClick={() => {
+                                setPickedState(1)
+                            }}>Book Appointment</button>
+                            {(pickedState !== 0 && values.picked == null) && (
+                                <React.Fragment>
+                                    <p className="error">Please select a vaccine</p>
+
                                 </React.Fragment>
-                            ))}
-
-                        </ul>
-
-                        <label>
-                            <Field name="terms">
-                                {({
-                                    field, // { name, value, onChange, onBlur }
-                                    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
-                                    meta,
-                                }) => (
-                                    <div>
-                                        I Agree To Terms
-                                        <input type="checkbox" {...field} />
-                                        {meta.touched && meta.error && (
-                                            <div className="error">{meta.error}</div>
-                                        )}
-                                    </div>
-                                )}
-                            </Field>
-                        </label>
-                        <br></br>
-                        <button className="button" type="submit" onClick={()=>{
-                            setPickedState(1)
-                        }}>Book Appointment</button>
-                        {(pickedState !== 0  && values.picked == null) && (
-                            <React.Fragment>
-                                <br></br>
-                            <p className = "error">Please select a vaccine</p>
-                            
-                            </React.Fragment>
-                        )}
-                    </Form>
-                )}
-            </Formik>
-
+                            )}
+                        </Form>
+                    )}
+                </Formik>
+            </div>
+            <BackButton history={history}></BackButton>
 
         </div>
     );

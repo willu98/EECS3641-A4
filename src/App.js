@@ -22,7 +22,9 @@ const App = () => {
     first:"",
     last:"",
     uID:"",
-    lID:"",
+    hospitalID:"",
+    addressID:"",
+    postalCodeID:"",
     vID:"",
     date:""
   });

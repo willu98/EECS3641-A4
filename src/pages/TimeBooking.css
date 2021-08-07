@@ -1,46 +1,58 @@
-.appointments-h1{
+.timebooking-center {
+    direction: flex;
+    width:50%;
+    flex-direction: column-reverse;
+    margin: 100px auto;
+}
+
+.timebooking-h1 {
     text-align: center;
     color: #777;
     margin-bottom: 0px;
 }
 
-.appointments-main{
-    display:flex;
-    flex-direction: column;
-    width:40%;
-    margin: 100px auto;
+.timebooking-h1 {
+    text-align: center;
+    color: #777;
+    margin-bottom: 0px;
 }
 
-.appointments-button{
-    margin-top: 5px;
-    background:#ff0055;
-    padding:10px;
-    color:white;
-    border-radius:5px;
-    font-size: 1.2em;    
-}
-.date-div{
+.timebooking-main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.date-div {
+    display: flex;
     align-items: center;
 }
-.date-calendar{
-    width:100%;
+
+.date-calendar {
+    width: 100%;
 }
-.date-h2{
+
+.date-h2 {
     font-size: 1.2em;
     margin-right: 10px;
     color: #777;
 }
-table{
+
+.timebooking-table {
     margin: auto;
     border: solid;
-    width:50%;
+    width: 100%;
     border-collapse: collapse;
 }
-td{
-    border:solid;
+
+.td {
+    border: solid;
     text-align: center;
     border-bottom: solid;
-    
+}
+
+.timebooking-p {
+    padding: 0px;
+    margin: 0px;
 }

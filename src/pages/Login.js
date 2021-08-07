@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { AppointmentContext } from '../global/Appointment-Context';
 import { useHistory } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import CustomInput from '../global/CustomInput'; 
+import CustomInput from '../global/CustomInput';
 import './Login.css';
 
 const Login = () => {
@@ -11,13 +11,13 @@ const Login = () => {
   const history = useHistory();
   const [appointment, setAppointment] = useContext(AppointmentContext);
 
-  const formik = 
+  const formik =
     <Formik
       initialValues={{
-        first:'',
-        last:'',
+        first: '',
+        last: '',
         versionCode: '',
-        ohipNum:'',
+        ohipNum: '',
       }}
       validationSchema={Yup.object({
         first: Yup.string()
@@ -25,7 +25,7 @@ const Login = () => {
           .required('required'),
         last: Yup.string()
           .matches(/^[a-zA-Z]+$/, 'English characters only')
-          .required('required'),                  
+          .required('required'),
         versionCode: Yup.string()
           .matches(/[A-Z][A-Z]/, 'Must be only 2 characters long and only letters')
           .required('required'),
@@ -33,26 +33,26 @@ const Login = () => {
           .matches(/^[0-9]{10}$/, 'Must be 10 digits')
           .required('required'),
       })}
-      onSubmit={(values, {setSubmitting, resetForm}) =>{
-        setAppointment({...appointment, uID:values.ohipNum, first:values.first, last:values.last});  
-        history.push(`/appointments/${values.ohipNum}`);              
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        setAppointment({ ...appointment, uID: values.ohipNum, first: values.first, last: values.last });
+        history.push(`/appointments/${values.ohipNum}`);
       }}
     >
       {props => (
         <Form className="login-form">
           <h1 className="login-h1">Log In</h1>
-          <CustomInput label="First Name" name="first" type="text" placeholder="John"/>
-          <CustomInput label="Last Name" name="last" type="text" placeholder="Doe"/>
-          <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length = "2"/>
-          <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length = "10"/>
+          <CustomInput label="First Name" name="first" type="text" placeholder="John" />
+          <CustomInput label="Last Name" name="last" type="text" placeholder="Doe" />
+          <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length="2" />
+          <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length="10" />
           <button className="login-button" type="submit">
-            {props.isSubmitting ? 'Loading...' : 'Submit'}        
+            {props.isSubmitting ? 'Loading...' : 'Submit'}
           </button>
         </Form>
       )}
     </Formik>;
 
-    return(formik);
+  return (formik);
 };
 
 export default Login;
