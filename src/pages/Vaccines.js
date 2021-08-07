@@ -52,7 +52,7 @@ const Vaccines = () => {
                 })}
                 onSubmit={values => {
                     setAppointment({ ...appointment, vID: values.picked });
-                    history.push('/timebooking');              
+                    history.push('/timebooking');
                 }}
             >
                 {({ values }) => (
