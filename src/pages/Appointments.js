@@ -37,7 +37,7 @@ const Appointments = () => {
                 ))}
             </ul>
             <button type="submit" className="appointments-button" onClick={() => history.push(`/locations/${UID}`)} >Book New Appointment</button>
-            <BackButton history={history}></BackButton>
+            <BackButton history={history} routeToLogin = {false}></BackButton>
         </div>
     );
 };

@@ -74,6 +74,10 @@ const Vaccines = () => {
                                         </div>
                                     </React.Fragment>
                                 ))}
+                                {(pickedState !== 0 && values.picked == null) && (
+                                    <p className="error">Please select a vaccine</p>
+
+                            )}
 
                             </ul>
 
@@ -84,11 +88,11 @@ const Vaccines = () => {
                                         form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
                                         meta,
                                     }) => (
-                                        <div>
+                                        <div >
                                             I Agree To Terms
                                             <input type="checkbox" {...field} />
                                             {meta.touched && meta.error && (
-                                                <div className="error">{meta.error}</div>
+                                                <div className="error" style={{width:"200px"}}>{meta.error}</div>
                                             )}
                                         </div>
                                     )}
@@ -98,12 +102,6 @@ const Vaccines = () => {
                             <button className="button" type="submit" onClick={() => {
                                 setPickedState(1)
                             }}>Book Appointment</button>
-                            {(pickedState !== 0 && values.picked == null) && (
-                                <React.Fragment>
-                                    <p className="error">Please select a vaccine</p>
-
-                                </React.Fragment>
-                            )}
                         </Form>
                     )}
                 </Formik>

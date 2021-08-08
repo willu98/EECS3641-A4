@@ -23,9 +23,17 @@ const RequiredInfo = () => {
         }
         setConfirmed(true);
       }}>
-        {confirmed ? (<span>Book Appointment</span>) : <span>Confirm</span>}
+        {confirmed ? (<span>Book Another Dose</span>) : <span>Confirm</span>}
       </button>
-      <BackButton history={history}></BackButton>
+      {!confirmed ?
+        <BackButton history={history}></BackButton> :
+        <button
+          className="button"
+          style={{ background: "blue" }}
+          onClick={() => {
+            history.push('/');
+          }}>Book New Appointment</button>
+      }
     </div>
 
   );
