@@ -19,7 +19,7 @@ const RequiredInfo = () => {
       }
       <button type="submit" className="button" onClick={() => {
         if (confirmed) {
-          history.push(`/`);
+          history.push(`/appointments/${appointment.uID}`);
         }
         setConfirmed(true);
       }}>

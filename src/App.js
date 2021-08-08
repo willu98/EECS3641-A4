@@ -12,6 +12,7 @@ import Appointments from './pages/Appointments';
 import TimeBooking from './pages/TimeBooking';
 import Vaccines from './pages/Vaccines';
 import MainHeader from './global/MainHeader';
+import Footer from './global/Footer';
 import Confirm from './pages/Confirm';
 import { AppointmentContext } from './global/Appointment-Context';
 
@@ -60,6 +61,7 @@ const App = () => {
       <Router>
         <MainHeader />
         <main>{routes}</main>
+        <Footer/>
       </Router>
     </AppointmentContext.Provider>  
   );

@@ -27,7 +27,8 @@ const Login = () => {
           .matches(/^[a-zA-Z]+$/, 'English characters only')
           .required('required'),
         versionCode: Yup.string()
-          .matches(/[A-Z][A-Z]/, 'Must be only 2 characters long and only letters')
+          .lowercase()
+          .matches(/[a-z][a-z]/, 'Must be only 2 characters long and only letters')
           .required('required'),
         ohipNum: Yup.string()
           .matches(/^[0-9]{10}$/, 'Must be 10 digits')

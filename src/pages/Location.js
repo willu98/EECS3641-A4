@@ -34,14 +34,16 @@ const Location = () => {
                 }}
                 validationSchema={Yup.object({
                     postalCode: Yup.string()
-                        .matches(/[a-z][0-9][a-z][0-9][a-z][0-9]/, 'Please Enter a valid postal code')
-                        .required('required').lowercase(),
+                        .lowercase()
+                        .trim()
+                        .matches(/[a-z][0-9][a-z][0-9][a-z][0-9]|[a-z][0-9][a-z]\s[0-9][a-z][0-9]/, 'Please enter a valid postal code')
+                        .required('required'),
                 })}
             >
                 {props => (
                     <Form className="location-form">
                         <h1 className="location-h1">Select Location</h1>
-                        <CustomInput className="postalcode-style" label="Postal Code:" name="postalCode" type="text" placeholder="L1H2H3" length="6" />
+                        <CustomInput className="postalcode-style" label="Postal Code:" name="postalCode" type="text" placeholder="L1H2H3" length="7" />
                         <button className="location-button">
                             {'Search'}
                         </button>
