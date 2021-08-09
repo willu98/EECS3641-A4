@@ -13,11 +13,13 @@ const Appointments = () => {
             id: 'A1',
             date: new Date("July 3 2021 11:20"),
             dose: 'First',
+            hospital:'North York General Hospital',
         },
         {
             id: 'A2',
             date: new Date("July 4 2021 10:00"),
             dose: 'Second',
+            hospital:'Etobicoke General Hospital',
         }
     ];
     const history = useHistory();
@@ -33,6 +35,7 @@ const Appointments = () => {
                         key={appointment.id}
                         date={appointment.date.toDateString() + " " + appointment.date.toTimeString()}
                         dose={appointment.dose}
+                        hospital={appointment.hospital}
                     />
                 ))}
             </ul>
