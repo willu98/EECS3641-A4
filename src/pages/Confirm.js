@@ -14,8 +14,8 @@ const RequiredInfo = () => {
       <h1 className="h1">Confirmation</h1>
 
       {!confirmed ? (
-        <div>{appointment.first} {appointment.last}, your appointment for the {appointment.vID} vaccine is set for {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID} . <p></p>Please click the 'Confirm' button below to confirm your appointment.</div>)
-        : <div>{appointment.first} {appointment.last}, You have booked your appointment for the {appointment.vID} vaccine on {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}. <p></p>Please click the button below to book another appointment.</div>
+        <div>{appointment.first} {appointment.last}, your appointment for the {appointment.vID} vaccine is set for <strong>{appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}</strong><p></p>Please click the 'Confirm' button below to confirm your appointment.</div>)
+        : <div>{appointment.first} {appointment.last}, You have booked your appointment for the {appointment.vID} vaccine on <strong>{appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}</strong> <p></p>Please click the button below to book another appointment.</div>
       }
       <button type="submit" className="button" onClick={() => {
         if (confirmed) {
