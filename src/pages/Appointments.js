@@ -27,7 +27,7 @@ const Appointments = () => {
         <div className="appointments-main">
             <h1 className="appointments-h1">Current Appointments</h1>
             <ul className="ul">
-                <h1 className="appointment-person-info">{appointment.first} {appointment.last} here are your current appoitments:</h1>
+                <h1 className="appointment-person-info">{appointment.first} {appointment.last} here are your current appointments:</h1>
                 {APPOINTMENTS.map(appointment => (
                     <Appointment
                         key={appointment.id}

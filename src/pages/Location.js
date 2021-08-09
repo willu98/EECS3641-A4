@@ -15,14 +15,16 @@ const Location = () => {
     const locationList = [{
         "key": 1,
         "hospital": "Etobicoke General Hospital",
-        "address": "101 Hymber College Bldv, Etobicoke ON",
-        "postalCode": "M9V 1R8"
+        "address": "101 Humber College Blvd, Etobicoke ON",
+        "postalCode": "M9V 1R8",
+        "distance": "12km"
     },
     {
         "key": 2,
         "hospital": "William Osler Health System - Brampton Civic Hospital",
         "address": "2100 Bovaird Dr E, Brampton ON",
-        "postalCode": "L6R 3J7"
+        "postalCode": "L6R 3J7",
+        "distance": "23km"
     }
     ];
 
@@ -64,6 +66,7 @@ const Location = () => {
                                     <p className="timebooking-p">{obj.hospital}</p>
                                     <p className="timebooking-p">{obj.address}</p>
                                     <p className="timebooking-p">{obj.postalCode}</p>
+                                    <p className="timebooking-p" style={{color:"black"}}>{obj.distance}</p>
                                 </td>
                             </tr>
                         </table>

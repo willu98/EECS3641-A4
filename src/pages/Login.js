@@ -42,10 +42,10 @@ const Login = () => {
       {props => (
         <Form className="login-form">
           <h1 className="login-h1">Log In</h1>
-          <CustomInput label="First Name" name="first" type="text" placeholder="John" />
-          <CustomInput label="Last Name" name="last" type="text" placeholder="Doe" />
-          <CustomInput label="Health Card Type" name="versionCode" type="text" placeholder="JV" length="2" />
-          <CustomInput label="Health Card Number" name="ohipNum" type="text" placeholder="0123456789" length="10" />
+          <CustomInput label="First Name" name="first" type="text" />
+          <CustomInput label="Last Name" name="last" type="text" />
+          <CustomInput label="Health Card Type ??" name="versionCode" type="text" length="2" />
+          <CustomInput label="Health Card Number ??" name="ohipNum" type="text" length="10" />
           <button className="login-button" type="submit">
             {props.isSubmitting ? 'Loading...' : 'Submit'}
           </button>

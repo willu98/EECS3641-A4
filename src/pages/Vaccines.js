@@ -20,7 +20,7 @@ const Vaccines = () => {
         },
         {
             id: 'P',
-            name: "Phizer",
+            name: "Pfizer",
             numDoses: 2,
         },
         {
@@ -37,7 +37,7 @@ const Vaccines = () => {
     return (
         <div className="vaccines-main">
             <h1 className="vaccines-h1">Select Your Vaccine</h1>
-            <div className = "vaccines-center">
+            <div className="vaccines-center">
                 <Formik
                     initialValues={{
                         picked: null,
@@ -77,7 +77,7 @@ const Vaccines = () => {
                                 {(pickedState !== 0 && values.picked == null) && (
                                     <p className="error">Please select a vaccine</p>
 
-                            )}
+                                )}
 
                             </ul>
 
@@ -92,7 +92,7 @@ const Vaccines = () => {
                                             I Agree To Terms
                                             <input type="checkbox" {...field} />
                                             {meta.touched && meta.error && (
-                                                <div className="error" style={{width:"200px"}}>{meta.error}</div>
+                                                <div className="error" style={{ width: "200px" }}>{meta.error}</div>
                                             )}
                                         </div>
                                     )}
