@@ -25,13 +25,17 @@ const TimeBooking = () => {
             <div className="timebooking-main">
                 <h1 className="timebooking-h1">Select Appointment Date</h1>
                 <div className="date-div">
-                    <h2 className="date-h2">Date: </h2>
+                    <div className="date-h2">Date: </div>
                     <DatePicker
                         minDate={new Date()}
-                        onChange={onChangeDate}
+                        onChange={
+                            onChangeDate
+                        }
                         value={currentDate}
-                        className="date-calendar" />
+                        className="date-calendar" />  
+                
                 </div>
+                {currentDate === null &&(<div className = "error">Please select a date</div>)}
             </div>
             <table className="timebooking-table">
                 <tbody>
