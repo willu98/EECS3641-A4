@@ -14,8 +14,8 @@ const RequiredInfo = () => {
       <h1 className="h1">Confirmation</h1>
 
       {!confirmed ? (
-        <div>{appointment.first} {appointment.last}, your appointment for the {appointment.vID} vaccine is set for {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID} . <br></br>Please click the 'Confirm' button below to confirm your appointment.</div>)
-        : <div>{appointment.first} {appointment.last}, You have booked your appointment for the {appointment.vID} vaccine on {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}. <br></br>Please click the button below to book another appointment.</div>
+        <div>{appointment.first} {appointment.last}, your appointment for the {appointment.vID} vaccine to be set for <strong>{appointment.time} on {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}</strong><p></p>Please click the 'Confirm' button below to confirm your appointment.</div>)
+        : <div>{appointment.first} {appointment.last}, You have booked your appointment for the {appointment.vID} vaccine at <strong>{appointment.time} on {appointment.date} at {appointment.hospitalID} {appointment.addresID}, {appointment.postalCodeID}</strong> <p></p></div>
       }
       <button type="submit" className="button" onClick={() => {
         if (confirmed) {
@@ -23,7 +23,7 @@ const RequiredInfo = () => {
         }
         setConfirmed(true);
       }}>
-        {confirmed ? (<span>Book Another Dose</span>) : <span>Confirm</span>}
+        {confirmed ? (<span>View My Appointments</span>) : <span>Confirm</span>}
       </button>
       {!confirmed ?
         <BackButton history={history}></BackButton> :
@@ -32,7 +32,7 @@ const RequiredInfo = () => {
           style={{ background: "blue" }}
           onClick={() => {
             history.push('/');
-          }}>Book New Appointment</button>
+          }}>Book For Another Person</button>
       }
     </div>
 

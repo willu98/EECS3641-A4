@@ -27,7 +27,8 @@ const App = () => {
     addressID:"",
     postalCodeID:"",
     vID:"",
-    date:""
+    date:"",
+    time:""
   });
 
   let routes = (

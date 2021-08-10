@@ -62,7 +62,7 @@ const TimeBooking = () => {
                                         {item.avaliability === "Avaliable" ?
                                             <button className="booking-button" onClick={() => {
                                                 history.push(`/confirmation`);
-                                                setAppointment({ ...appointment, date: currentDate.toDateString() });
+                                                setAppointment({ ...appointment, date: currentDate.toDateString(), time: item.time });
                                             }}>
                                                 Book
                                             </button> :
